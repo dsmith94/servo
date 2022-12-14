@@ -71,14 +71,17 @@ const msg = (content, options) => {
     for (const state of states) {
       const topics = Object.keys(c$[state]);
       for (const topic of topics) {
+        const lwrStr = str.toLowerCase();
         let label = topic;
         const keyword = `#${topic}`;
-        if (str.indexOf(keyword) > -1) {
+        const tokenIndex = lwrStr.indexOf(keyword);
+        if (tokenIndex > -1) {
+          const replaceToken = str.slice(tokenIndex, tokenIndex + keyword.length);
+          label = replaceToken.slice(1);
           str = str.replace(
-            keyword,
+            replaceToken,
             `<span class="topic" onclick="setTopic('${topic}')">${label}</span>`
           );
-          setState(state);
         }
       }
     }

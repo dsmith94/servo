@@ -18,11 +18,27 @@ Game.yates = {
 
         look: `
 
-        "Hey, I'm kind of busy here," Yates says with mild annoyance.
+        "Hey, I'm kind of busy here," #Yates says with mild annoyance.
 
         @suggest
 
         `,
+
+        yates: [
+            [`Thanks for all the hard work`, `
+            
+            "I know!" says Yates.
+            
+            `]
+        ],
+
+        needs: [
+            [`Thanks for all the hard work`, `
+            
+            "I know!" says Yates.
+            
+            `]
+        ],
 
         repairs: [
             [`Thanks for all the hard work`, `
