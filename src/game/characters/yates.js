@@ -3,6 +3,10 @@ Game.yates = {
     name: 'Yates',
     location: 'start',
     hasMet: true,
+    topics: [
+        'repairs',
+        'needs',
+    ],
 
     talk: {
 
@@ -16,7 +20,7 @@ Game.yates = {
 
         "Hey, I'm kind of busy here," Yates says with mild annoyance.
 
-        [You could discus the ship #repairs with Yates, or you could #bye for now.]
+        @suggest
 
         `,
 

@@ -187,6 +187,16 @@ const setTopic = (topic) => {
   }
 };
 
+
+const suggestTopics = () => {
+  msg(`
+  
+  <div class="suggested-topics">[You could discuss ${c$.topics.map(t => `#${t}`).join(', ')} or just say #bye for now.]</div>
+  
+  `, {skipSkylight: true})
+};
+
+
 const characterLink = (character, content) => `
     
     <div onclick="talk('${character}')">${skylight(content)}</div>

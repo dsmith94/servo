@@ -37,15 +37,15 @@ const msg = (content, options) => {
     const states = Object.keys(c$);
     const endKeyword = "@end";
     const setNameKeyword = "@set-name";
-    const suggestTopics = "@suggest";
+    const suggestTopicsKeyword = "@suggest";
     const setLocationKeyword = "@set-loc";
     if (str.indexOf(endKeyword) > -1) {
       endConversation();
       str = str.replace(endKeyword, "");
     }
-    if (str.indexOf(suggestTopics) > -1) {
+    if (str.indexOf(suggestTopicsKeyword) > -1) {
       suggestTopics();
-      str = str.replace(suggestTopics, "");
+      str = str.replace(suggestTopicsKeyword, "");
     }
     if (str.indexOf(setNameKeyword) > -1) {
       const tokens = str.split("@set-name {");

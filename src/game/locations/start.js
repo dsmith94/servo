@@ -2,8 +2,8 @@ Game.start = {
 
    desc: `
    
-   Lying close to the edge of a cliff is your ship, crumpled into more of an according than a spacecraft. Straight left
-   the airlock hangs open to enter, and a winding path leads down to a little village in the valley below.
+   Lying close to the edge of a cliff is your ship, presently more of an accordion than a spacecraft. Straight left
+   the airlock hangs open, and a winding path leads down to a little village in the valley below.
    
    `,
 
