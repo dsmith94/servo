@@ -1,0 +1,431 @@
+
+
+@font-face {
+    font-family: 'Michroma';
+    src: url('Michroma.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+:root {
+  font-family: Georgia, Palatino, Baskerville, Cambria, Cochin, Garamond, Times, "Times New Roman", serif;
+  font-weight: lighter;
+  margin-left: 8vw;
+  margin-right: 8vw;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  
+}
+
+
+@supports (font-size-adjust: 1) {
+    article {
+        font-size-adjust: 0.5;
+    }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+  .topRoot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    line-height: 1.5em;
+    width: 100vw;
+    max-width: 60em;
+    min-height: 90vh;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .topRoot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    line-height: 1.5em;
+    width: 100vw;
+    max-width: 60ch;
+    min-height: 90vh;
+  }
+
+}
+
+
+.main {
+  justify-content: center;
+  align-items: center;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+
+.outFade {
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+}
+
+.outRight {
+  animation-name: out-right;
+  animation-duration: 0.5s;
+}
+
+
+.outLeft {
+  animation-name: out-left;
+  animation-duration: 0.5s;
+}
+
+
+.outDown {
+  animation-name: out-down;
+  animation-duration: 0.5s;
+}
+
+
+.outUp {
+  animation-name: out-up;
+  animation-duration: 0.5s;
+}
+
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+
+.topBar {
+  width: 100vw;
+  height: 64px;
+  background: linear-gradient(0deg, rgba(36,36,36,1) 0%, rgba(29,29,29,1) 100%);
+}
+
+
+.menu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #1d1d1d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation-name: swipe-down;
+  animation-duration: 0.5s;
+}
+
+
+.tipBox {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation-name: swipe-down;
+  animation-duration: 0.5s;
+}
+
+
+
+.tipInnerBox {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #213547;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+
+.tipInnerText {
+  font-family: 'EB Garamond', Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: lighter;
+  padding: 30px;
+}
+
+
+.outMenu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #1d1d1d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation-name: swipe-up;
+  animation-duration: 0.5s;
+}
+
+
+input {
+  text-align: center;
+  font-size: x-large;
+  width: 100%;
+  color: antiquewhite;
+  background-color: #1a1a1a;
+}
+
+
+p {
+  text-indent: 1em;
+  text-align: left;
+  margin-bottom: 2px;
+  margin-top: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+q:before {
+  content: open-quote;
+}
+
+q:after {
+  content: close-quote;
+}
+
+
+/*
+
+  background-image: url("back.png");
+  background-size: cover;
+
+*/
+
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+@keyframes fade-out {
+  0%   {
+    opacity: 100%;
+  }
+  100%   {
+    opacity: 0%;
+  }
+}
+
+
+@keyframes fade-in {
+  0%   {
+    opacity: 0%;
+  }
+  100%   {
+    opacity: 100%;
+  }
+}
+
+@keyframes page-in {
+  0%   {
+    transform: translate(100vw, 0vw);
+    opacity: 0%;
+  }
+  100%   {
+    transform: translate(0px, 0px);
+    opacity: 100%;
+  }
+}
+
+
+@keyframes out-right {
+  0%   {transform: translate(0px, 0px)}
+  100%   {
+    transform: translate(-100vw, 0vw);
+    opacity: 0%;
+  }
+}
+
+@keyframes out-down {
+  0%   {transform: translate(0px, 0px)}
+  100%   {
+    transform: translate(0vw, -100vw);
+    opacity: 0%;
+  }
+}
+
+
+@keyframes out-left {
+  0%   {transform: translate(0px, 0px)}
+  100%   {
+    transform: translate(100vw, 0vw);
+    opacity: 0%;
+  }
+}
+
+
+@keyframes out-up {
+  0%   {transform: translate(0px, 0px)}
+  100%   {
+    transform: translate(0vw, 100vw);
+    opacity: 0%;
+  }
+}
+
+
+@keyframes swipe-down {
+  0%   {transform: translate(0px, -100vh)}
+  100%   {
+    transform: translate(0vw, 0px);
+  }
+}
+
+@keyframes swipe-up {
+  0%   {transform: translate(0px, 0px)}
+  100%   {
+    transform: translate(0vw, -100vh);
+  }
+}
+
+h1 {
+  text-indent: 0;
+  font-size: 3.2em;
+  line-height: 1.1;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h2 {
+  text-indent: 0;
+  font-size: 2.2em;
+  line-height: 1.1;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h3 {
+  text-indent: 0;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.1;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+
+.headline {
+  text-indent: 0;
+  font-size: 1.1em;
+  text-align: center;
+  line-height: 1.1;
+  font-weight: bold;
+  color: wheat;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+#page {
+  border-radius: 2em;
+  padding: 1.0em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+#input {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  border-radius: 0.25em;
+  border: 1px solid transparent;
+  padding: 0.6em;
+  margin: 1em;
+  max-width: 100%;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  text-indent: 0px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.buttonText {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: x-large;
+  width: 100vw;
+}
+
+h4 {
+  color: white;
+  text-shadow: 0px 0px 2px white;
+  text-indent: 0px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}

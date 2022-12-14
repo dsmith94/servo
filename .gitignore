@@ -1,0 +1,5 @@
+# ignore node stuff
+node_modules
+
+# ignore automatically generated jsdoc stuff
+jsdoc/*

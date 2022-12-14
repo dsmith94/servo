@@ -1,0 +1,14 @@
+Game.start = {
+
+   desc: `
+   
+   Lying close to the edge of a cliff is your ship, crumpled into more of an according than a spacecraft. Straight left
+   the airlock hangs open to enter, and a winding path leads down to a little village in the valley below.
+   
+   `,
+
+   swipeUp: `Going that way would send you directly over the cliff.`,
+
+   swipeLeft: () => go('insideShip')
+
+}
