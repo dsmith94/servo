@@ -40,13 +40,13 @@
   .topRoot {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: large;
     line-height: 1.5em;
     width: 100vw;
     max-width: 60em;
-    min-height: 90vh;
+    max-height: 90vh;
   }
 
 }
@@ -56,13 +56,13 @@
   .topRoot {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: medium;
     line-height: 1.5em;
     width: 100vw;
     max-width: 60ch;
-    min-height: 90vh;
+    max-height: 90vh;
   }
 
 }
@@ -73,6 +73,7 @@
   align-items: center;
   animation-name: fade-in;
   animation-duration: 0.5s;
+  height: 90vh;
 }
 
 .outFade {
@@ -113,6 +114,11 @@ q {
   width: 100vw;
   height: 64px;
   background: linear-gradient(0deg, rgba(36,36,36,1) 0%, rgba(29,29,29,1) 100%);
+}
+
+
+.topic {
+  color: wheat;
 }
 
 
@@ -189,7 +195,8 @@ q {
 input {
   text-align: center;
   font-size: x-large;
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   color: antiquewhite;
   background-color: #1a1a1a;
 }
@@ -355,6 +362,11 @@ h3 {
 }
 
 
+.swipeArea {
+  height: 100%;
+}
+
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -370,13 +382,6 @@ h3 {
   padding-bottom: 1.5em;
 }
 
-#input {
-  padding: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 button {
   border-radius: 0.25em;
