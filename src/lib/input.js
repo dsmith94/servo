@@ -39,6 +39,7 @@ const showInput = () => {
   inputBox.name = "inp";
   inputBox.placeholder = "Enter here";
   inputBox.class = "inp";
+  inputBox.id = "inputBox";
   inputBox.autofocus = true;
   inputBox.oninput = () => {
     const page = document.getElementById("page");

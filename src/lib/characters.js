@@ -178,8 +178,17 @@ const handleCharacterLook = () => {
   }
 };
 
+const setTopic = (topic) => {
+  const inputBox = document.getElementById("inputBox");
+  if (inputBox) {
+    inputBox.value = topic;
+    g$.input = topic;
+    refreshButtons();
+  }
+};
+
 const characterLink = (character, content) => `
     
-    <span onclick="talk('${character}')">${skylight(content)}</span>
+    <div onclick="talk('${character}')">${skylight(content)}</div>
     
 `;

@@ -16,7 +16,17 @@ Game.yates = {
 
         "Hey, I'm kind of busy here," Yates says with mild annoyance.
 
+        [You could discus the ship #repairs with Yates, or you could #bye for now.]
+
         `,
+
+        repairs: [
+            [`Thanks for all the hard work`, `
+            
+            "I know!" says Yates.
+            
+            `]
+        ],
 
         bye: [
             [`Well, keep working, we need to get off this rock`, `

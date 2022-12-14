@@ -28,16 +28,24 @@ const msg = (content, options) => {
   };
 
   let str = typeof content === "string" ? content : content();
+  if (!options?.skipSkylight) {
+    str = skylight(str, options?.skipParagraphTags);
+  }
 
   // process in-message commands
   if (g$.isTalking) {
     const states = Object.keys(c$);
     const endKeyword = "@end";
     const setNameKeyword = "@set-name";
+    const suggestTopics = "@suggest";
     const setLocationKeyword = "@set-loc";
     if (str.indexOf(endKeyword) > -1) {
       endConversation();
       str = str.replace(endKeyword, "");
+    }
+    if (str.indexOf(suggestTopics) > -1) {
+      suggestTopics();
+      str = str.replace(suggestTopics, "");
     }
     if (str.indexOf(setNameKeyword) > -1) {
       const tokens = str.split("@set-name {");
@@ -60,16 +68,24 @@ const msg = (content, options) => {
         setState(state);
       }
     }
+    for (const state of states) {
+      const topics = Object.keys(c$[state]);
+      for (const topic of topics) {
+        let label = topic;
+        const keyword = `#${topic}`;
+        if (str.indexOf(keyword) > -1) {
+          str = str.replace(
+            keyword,
+            `<span class="topic" onclick="setTopic('${topic}')">${label}</span>`
+          );
+          setState(state);
+        }
+      }
+    }
   }
 
-  // handle the rest of msg
-  // branch based on input as array, string or function
   const page = document.getElementById("page");
-  if (options?.skipSkylight === true) {
-    page.innerHTML += str;
-    return;
-  }
   if (page) {
-    page.innerHTML += skylight(str, options?.skipParagraphTags);
+    page.innerHTML += str;
   }
 };

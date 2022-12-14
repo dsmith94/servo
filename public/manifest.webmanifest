@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "Everything Ends on Snorlag",
   "short_name": "Everything Ends on Snorlag",
-  "start_url": "https://dsmith94.github.io/sky",
+  "start_url": "https://dsmith94.github.io/servo",
   "display": "standalone",
   "background_color": "#242424",
   "theme_color": "#ffffff",

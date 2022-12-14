@@ -50,29 +50,11 @@ const createPage = () => {
   const page = document.createElement("div");
   const input = document.createElement("div");
   const btns = document.createElement("div");
+  const swipe = document.createElement("div");
   if (!topRoot) {
     topRoot = document.createElement("div");
     topRoot.className = "topRoot";
     document.body.appendChild(topRoot);
-    topRoot.addEventListener("touchstart", (event) => {
-      startPoint = { x: event.touches[0].clientX, y: event.touches[0].clientY };
-    });
-    topRoot.addEventListener("touchend", (event) => {
-      endPoint = {
-        x: event.changedTouches[0].clientX,
-        y: event.changedTouches[0].clientY,
-      };
-      if (getDistance(startPoint, endPoint) > touchResolution) {
-        const direction = getAngle(startPoint, endPoint);
-        if (direction) {
-          handleDirection(direction);
-        }
-      } else {
-        if (g$.singleTap) {
-          g$.singleTap();
-        }
-      }
-    });
   }
   topRoot.appendChild(main);
   main.className = "main";
@@ -82,10 +64,32 @@ const createPage = () => {
   input.id = "input";
   btns.className = "btns";
   btns.id = "btns";
+  swipe.className = "swipeArea";
+  swipe.id = "btns";
+  swipe.addEventListener("touchstart", (event) => {
+    startPoint = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+  });
+  swipe.addEventListener("touchend", (event) => {
+    endPoint = {
+      x: event.changedTouches[0].clientX,
+      y: event.changedTouches[0].clientY,
+    };
+    if (getDistance(startPoint, endPoint) > touchResolution) {
+      const direction = getAngle(startPoint, endPoint);
+      if (direction) {
+        handleDirection(direction);
+      }
+    } else {
+      if (g$.singleTap) {
+        g$.singleTap();
+      }
+    }
+  });
 
   // add elements to active DOM
   topRoot.appendChild(main);
   main.appendChild(page);
   main.appendChild(input);
   main.appendChild(btns);
+  main.appendChild(swipe);
 };
