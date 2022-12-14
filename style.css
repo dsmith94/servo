@@ -13,6 +13,7 @@
   font-weight: lighter;
   margin-left: 8vw;
   margin-right: 8vw;
+  overflow:hidden;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -207,6 +208,13 @@ p {
   text-align: left;
   margin-bottom: 2px;
   margin-top: 0;
+}
+
+.suggested-topics {
+  text-indent: 0em;
+  text-align: left;
+  margin-bottom: 2em;
+  margin-top: 2em;
 }
 
 a {
