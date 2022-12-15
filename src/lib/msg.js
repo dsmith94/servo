@@ -32,6 +32,31 @@ const msg = (content, options) => {
     str = skylight(str, options?.skipParagraphTags);
   }
 
+
+  const synonymCheck = (keyword) => {
+    const lwrStr = str.toLowerCase();
+    for (const top of Object.keys(Game.topics)) {
+      for (const word of Game.topics[top]) {
+        const index = lwrStr.indexOf(`#${word}`.toLowerCase());
+        if (index > -1 && keyword === top) {
+          return [top, `#${word}`, index];
+        }
+      }
+      if (keyword.toLowerCase() === top.toLowerCase()) {
+        const index = lwrStr.indexOf(`#${top}`.toLowerCase());
+        if (index > -1) {
+          return [top, `#${top}`, index];
+        }
+      }
+    }
+    const index = lwrStr.indexOf(`#${keyword}`.toLowerCase());
+    if (index > -1) {
+      return [keyword, `#${keyword}`, index];
+    }
+    return ['', '', -1];
+  };
+
+
   // process in-message commands
   if (g$.isTalking) {
     const states = Object.keys(c$);
@@ -44,8 +69,7 @@ const msg = (content, options) => {
       str = str.replace(endKeyword, "");
     }
     if (str.indexOf(suggestTopicsKeyword) > -1) {
-      suggestTopics();
-      str = str.replace(suggestTopicsKeyword, "");
+      str = str.replace(suggestTopicsKeyword, suggestTopics());
     }
     if (str.indexOf(setNameKeyword) > -1) {
       const tokens = str.split("@set-name {");
@@ -71,16 +95,16 @@ const msg = (content, options) => {
     for (const state of states) {
       const topics = Object.keys(c$[state]);
       for (const topic of topics) {
-        const lwrStr = str.toLowerCase();
-        let label = topic;
-        const keyword = `#${topic}`;
-        const tokenIndex = lwrStr.indexOf(keyword);
+        const [keyword, label, tokenIndex] = synonymCheck(topic);
         if (tokenIndex > -1) {
-          const replaceToken = str.slice(tokenIndex, tokenIndex + keyword.length);
-          label = replaceToken.slice(1);
+          const replaceToken = str.slice(
+            tokenIndex,
+            tokenIndex + label.length
+          );
+          const trimmedLabel = replaceToken.slice(1);
           str = str.replace(
             replaceToken,
-            `<span class="topic" onclick="setTopic('${topic}')">${label}</span>`
+            `<span class="topic" onclick="setTopic('${keyword}')">${trimmedLabel}</span>`
           );
         }
       }

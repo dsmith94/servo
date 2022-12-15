@@ -188,13 +188,11 @@ const setTopic = (topic) => {
 };
 
 
-const suggestTopics = () => {
-  msg(`
+const suggestTopics = () => `
   
-  <div class="suggested-topics">[You could discuss ${c$.topics.map(t => `#${t}`).join(', ')} or just say #bye for now.]</div>
+  <div class="suggested-topics">[You could discuss ${c$.topics.map(t => `#${t}`).join(', ')} or just say #goodbye for now.]</div>
   
-  `, {skipSkylight: true})
-};
+  `
 
 
 const characterLink = (character, content) => `

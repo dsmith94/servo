@@ -33,11 +33,11 @@ Game.yates = {
         ],
 
         needs: [
-            [`Thanks for all the hard work`, `
+            [`Thanks for all the hard work`, () => {
             
-            "I know!" says Yates.
+                msg(`"I know!" says Yates.`)
             
-            `]
+            }]
         ],
 
         repairs: [
